@@ -1,9 +1,10 @@
-package com.dev.docs.repository;
+package com.dev.ahorro.bitacora.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.dev.docs.model.Cliente;
+import com.dev.ahorro.bitacora.model.Cliente;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+public interface ClienteRepository extends JpaRepository<Cliente, String> {
 
 }
+

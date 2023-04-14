@@ -1,73 +1,113 @@
-package com.dev.docs.model;
+package com.dev.ahorro.bitacora.model;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
 
 @Entity
 @Table(name = "documento")
 public class Documento {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column
-    public String tipo;
-	@Column
-    public String codigo;
-	@Column
-    public String nombre;
-	@Column
-    public String seguridad;
-	@Column
-    public String original;
-	@Column
-    public String copia;
-	public Long getId() {
-		return id;
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id_doc")
+    private Long idDoc;
+
+    @Column(name = "tipo_doc", length = 8)
+    private String tipoDoc;
+
+    @Column(name = "codigo_doc", length = 4)
+    private String codigoDoc;
+
+    @Column(name = "nombre_doc", length = 50)
+    private String nombreDoc;
+
+    @Column(name = "cod_seguridad", length = 25)
+    private String codSeguridad;
+
+    @Column(name = "id_cmo_copia", length = 15)
+    private String idCMOCopia;
+
+    @Column(name = "id_cmo_org")
+    private Long IdCmoOrg;
+
+    @ManyToOne
+    @JoinColumn(name = "id_flujo")
+    private Flujo flujo;
+
+	public Long getIdDoc() {
+		return idDoc;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public void setIdDoc(Long idDoc) {
+		this.idDoc = idDoc;
 	}
-	public String getTipo() {
-		return tipo;
+
+	public String getTipoDoc() {
+		return tipoDoc;
 	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+
+	public void setTipoDoc(String tipoDoc) {
+		this.tipoDoc = tipoDoc;
 	}
-	public String getCodigo() {
-		return codigo;
+
+	public String getCodigoDoc() {
+		return codigoDoc;
 	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+
+	public void setCodigoDoc(String codigoDoc) {
+		this.codigoDoc = codigoDoc;
 	}
-	public String getNombre() {
-		return nombre;
+
+	public String getNombreDoc() {
+		return nombreDoc;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+
+	public void setNombreDoc(String nombreDoc) {
+		this.nombreDoc = nombreDoc;
 	}
-	public String getSeguridad() {
-		return seguridad;
+
+	public String getCodSeguridad() {
+		return codSeguridad;
 	}
-	public void setSeguridad(String seguridad) {
-		this.seguridad = seguridad;
+
+	public void setCodSeguridad(String codSeguridad) {
+		this.codSeguridad = codSeguridad;
 	}
-	public String getOriginal() {
-		return original;
+
+	public String getIdCMOCopia() {
+		return idCMOCopia;
 	}
-	public void setOriginal(String original) {
-		this.original = original;
+
+	public void setIdCMOCopia(String idCMOCopia) {
+		this.idCMOCopia = idCMOCopia;
 	}
-	public String getCopia() {
-		return copia;
+
+	public Long getIdCmoOrg() {
+		return IdCmoOrg;
 	}
-	public void setCopia(String copia) {
-		this.copia = copia;
+
+	public void setIdCmoOrg(Long idCmoOrg) {
+		IdCmoOrg = idCmoOrg;
 	}
-	
-	
+
+	public Flujo getFlujo() {
+		return flujo;
+	}
+
+	public void setFlujo(Flujo flujo) {
+		this.flujo = flujo;
+	}
+
+    // Constructor, getters y setters
+    
+    
+    
 }
+

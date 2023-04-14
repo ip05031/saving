@@ -1,29 +1,13 @@
-package com.dev.docs.service;
+package com.dev.ahorro.bitacora.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.dev.ahorro.bitacora.model.Cliente;
 
-import com.dev.docs.model.Cliente;
-import com.dev.docs.repository.ClienteRepository;
-
-import jakarta.transaction.Transactional;
-
-@Service
-@Transactional
-public class ClienteService {
-
-	@Autowired
-	ClienteRepository repositorio;
-	
-	public ArrayList<Cliente> getAllClientes(){
-		return (ArrayList<Cliente>) repositorio.findAll();
-	}
-	
-	public void save(Cliente cliente) {
-		repositorio.save(cliente);
-	}
-	
+public interface ClienteService {
+    Cliente crearCliente(Cliente cliente);
+    Cliente obtenerClientePorNumeroUnico(String numeroUnico);
+    List<Cliente> obtenerTodosLosClientes();
+    void eliminarClientePorNumeroUnico(String numeroUnico);
 }
- 
+
